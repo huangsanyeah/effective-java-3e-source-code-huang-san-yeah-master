@@ -22,11 +22,19 @@ public class Card {
     public static void main(String[] args) {
         List<Card> deck = new ArrayList<>();
         //错误的方式
+        /**
+         * Don’t feel bad if you didn’t spot the bug. Many expert programmers have made this mistake at one time or another.
+         * The problem is that the next method is called too many times on the iterator for the outer collection (suits).
+         * It should be called from the outer loop so that it is called once per suit,but instead it is called from the inner loop,
+         * so it is called once per card. After you run out of suits, the loop throws a NoSuchElementException.
+         */
         for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
             for (Iterator<Rank> j = ranks.iterator(); j.hasNext(); ) {
                 deck.add(new Card(i.next(), j.next()));
             }
         }
+
+        System.out.println("***************************"+deck);
 
         // Fixed, but ugly - you can do better!
         for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
@@ -38,6 +46,7 @@ public class Card {
             }
         }
 
+        System.out.println("***************************");
         // Preferred idiom for nested iteration on collections and arrays
 //        for (Suit suit : suits) {
 //            for (Rank rank : ranks) {

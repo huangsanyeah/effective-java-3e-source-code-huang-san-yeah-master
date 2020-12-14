@@ -12,7 +12,7 @@ public class DiceRolls {
         // Same bug, different symptom!
         Collection<Face> faces = EnumSet.allOf(Face.class);
 
-        //错误de的方式 这里程序并不会抛出异常，只是单纯的因为i.next()每次都会取下一个值，所以就出现了只会返回6个值的情况
+        //错误的方式 这里程序并不会抛出异常，只是单纯的因为i.next()每次都会取下一个值，所以就出现了只会返回6个值的情况
         for (Iterator<Face> i = faces.iterator(); i.hasNext(); ) {
             for (Iterator<Face> j = faces.iterator(); j.hasNext(); ) {
                 System.out.println(i.next() + " " + j.next());
