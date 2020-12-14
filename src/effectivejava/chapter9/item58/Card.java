@@ -22,11 +22,11 @@ public class Card {
     public static void main(String[] args) {
         List<Card> deck = new ArrayList<>();
         //错误的方式
-//        for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
-//            for (Iterator<Rank> j = ranks.iterator(); j.hasNext(); ) {
-//                deck.add(new Card(i.next(), j.next()));
-//            }
-//        }
+        for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
+            for (Iterator<Rank> j = ranks.iterator(); j.hasNext(); ) {
+                deck.add(new Card(i.next(), j.next()));
+            }
+        }
 
         // Fixed, but ugly - you can do better!
         for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
