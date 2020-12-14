@@ -5,7 +5,7 @@ import java.util.*;
 // Same bug as NestIteration.java (but different symptom)!! - Page 213
 
 /**
- * 预期输出36种
+ * 预期输出36种，实际输出6种
  */
 public class DiceRolls {
     public static void main(String[] args) {
@@ -23,6 +23,7 @@ public class DiceRolls {
 
         System.out.println("***************************");
 
+        //正确但不优雅
         for (Iterator<Face> i = faces.iterator(); i.hasNext(); ) {
             Face face=i.next();
             for (Iterator<Face> j = faces.iterator(); j.hasNext(); ) {
@@ -31,7 +32,7 @@ public class DiceRolls {
         }
 
         System.out.println("***************************");
-
+        //正确的方式
         for (Face f1 : faces) {
             for (Face f2 : faces) {
                 System.out.println(f1 + " " + f2);
