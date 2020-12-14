@@ -18,7 +18,7 @@ public class RandomBug {
     }
 
     public static void main(String[] args) {
-        //错误的方式
+        //1.错误的方式
        /* //int MAX_VALUE = 2147483647
         int n = 2 * (Integer.MAX_VALUE / 3);
         int low = 0;
@@ -32,7 +32,7 @@ public class RandomBug {
         System.out.println(low);*/
 
 
-        //正确但是不推荐的方式，性能差，rnd.nextInt(n)
+        //2.正确但是不推荐的方式，性能差，rnd.nextInt(n)
        /* //int MAX_VALUE = 2147483647
         int n = 2 * (Integer.MAX_VALUE / 3);
         int low = 0;
@@ -44,7 +44,7 @@ public class RandomBug {
         System.out.println(low);*/
 
 
-        //从 Java 7 开始，就不应该再使用 Random。在大多数情况下，选择的随机数生成器现在是 ThreadLocalRandom。
+        //3.从 Java 7 开始，就不应该再使用 Random。在大多数情况下，选择的随机数生成器现在是 ThreadLocalRandom。
         // 它能产生更高质量的随机数，而且速度非常快。在我的机器上，它比 Random 快 3.6 倍。对于 fork 连接池和并行流，使用 SplittableRandom
         ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
         int n = 2 * (Integer.MAX_VALUE / 3);
