@@ -21,16 +21,39 @@ public class Card {
 
     public static void main(String[] args) {
         List<Card> deck = new ArrayList<>();
-        
+        //错误的方式
+//        for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
+//            for (Iterator<Rank> j = ranks.iterator(); j.hasNext(); ) {
+//                deck.add(new Card(i.next(), j.next()));
+//            }
+//        }
+
+        // Fixed, but ugly - you can do better!
         for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
+            Suit suit = i.next();
             for (Iterator<Rank> j = ranks.iterator(); j.hasNext(); ) {
-                deck.add(new Card(i.next(), j.next()));
+                Card card=new Card(suit, j.next());
+                deck.add(card);
+                System.out.println(card.toString());
             }
         }
 
-//        // Preferred idiom for nested iteration on collections and arrays
-//        for (Suit suit : suits)
-//            for (Rank rank : ranks)
-//                deck.add(new Card(suit, rank));
+        // Preferred idiom for nested iteration on collections and arrays
+//        for (Suit suit : suits) {
+//            for (Rank rank : ranks) {
+//                Card card=new Card(suit, rank);
+//                deck.add(card);
+//                System.out.println(card.toString());
+//            }
+//        }
+
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "suit=" + suit +
+                ", rank=" + rank +
+                '}';
     }
 }

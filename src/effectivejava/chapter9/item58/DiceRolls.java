@@ -17,8 +17,10 @@ public class DiceRolls {
 
         System.out.println("***************************");
 
-        for (Face f1 : faces)
-            for (Face f2 : faces)
+        for (Face f1 : faces) {
+            for (Face f2 : faces) {
                 System.out.println(f1 + " " + f2);
+            }
+        }
     }
 }
