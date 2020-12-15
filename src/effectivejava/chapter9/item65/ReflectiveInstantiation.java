@@ -12,7 +12,8 @@ public class ReflectiveInstantiation {
         // Translate the class name into a Class object
         Class<? extends Set<String>> cl = null;
         try {
-            cl = (Class<? extends Set<String>>)  // Unchecked cast!
+            // Unchecked cast!
+            cl = (Class<? extends Set<String>>)
                     Class.forName(args[0]);
         } catch (ClassNotFoundException e) {
             fatalError("Class not found.");
