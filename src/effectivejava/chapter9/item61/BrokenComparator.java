@@ -5,6 +5,11 @@ import java.util.Comparator;
 
 /**
  * 尽量用基本类型 不要使用包装类型
+ * 什么时候应该使用包装类型呢？
+ * 它们有几个合法的用途。
+ * 第一个是作为集合中的元素、键和值。不能将基本类型放在集合中，因此必须使用包装类型。这是一般情况下的特例。
+ * 在参数化类型和方法（Chapter 5）中，必须使用包装类型作为类型参数，因为 Java 不允许使用基本类型。例如，不能将变量声明为 ThreadLocal<int> 类型，因此必须使用 ThreadLocal<Integer>。
+ * 最后，在进行反射方法调用时，必须使用包装类
  */
 public class BrokenComparator {
     public static void main(String[] args) {
